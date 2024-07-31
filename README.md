@@ -21,47 +21,6 @@ Technologies Used
     Payment Integration: Stripe/PayPal API
     Hosting: Deployed on Heroku/Vercel
 
-Installation
-
-    Clone the repository:
-
-    bash
-
-git clone https://github.com/yourusername/mern-ecommerce.git
-
-Install dependencies:
-
-bash
-
-cd mern-ecommerce
-npm install
-cd client
-npm install
-
-Create a .env file in the root directory and add the following:
-
-bash
-
-NODE_ENV = development
-PORT = 5000
-MONGO_URI = your_mongodb_connection_string
-JWT_SECRET = your_jwt_secret
-PAYPAL_CLIENT_ID = your_paypal_client_id
-
-Run the application:
-
-bash
-
-    # In the root directory
-    npm run dev
-
-Usage
-
-    Visit the homepage to browse products.
-    Sign up or log in to add products to the cart.
-    Complete the checkout process using the integrated payment gateway.
-    Admin users can manage products, orders, and users via the admin dashboard.
-
 Contributing
 
 Contributions are welcome! Please fork the repository and create a pull request.
