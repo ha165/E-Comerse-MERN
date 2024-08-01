@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
+import { Suspense, lazy } from "react";
 import App from "../App";
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import ForgotPassword from "../pages/ForgotPassword";
-import SignUp from "../pages/SignUp";
+
+const Home = lazy(() => import("../pages/Home"));
+const Login = lazy(() => import("../pages/Login"));
+const ForgotPassword = lazy(() => import("../pages/ForgotPassword"));
+const SignUp = lazy(() => import("../pages/SignUp"));
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -11,21 +14,38 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <Home />
+                element: (
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Home />
+                    </Suspense>
+                ),
             },
             {
                 path: "login",
-                element: <Login />
+                element: (
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <Login />
+                    </Suspense>
+                ),
             },
             {
-                path : "forgot-password",
-                element : <ForgotPassword/>
-            },{
-                path : "sign-up",
-                element : <SignUp/>
-            }
-        ]
-    }
+                path: "forgot-password",
+                element: (
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <ForgotPassword />
+                    </Suspense>
+                ),
+            },
+            {
+                path: "signup",
+                element: (
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <SignUp />
+                    </Suspense>
+                ),
+            },
+        ],
+    },
 ]);
 
 export default router;
