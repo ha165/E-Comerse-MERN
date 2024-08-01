@@ -4,7 +4,27 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 const Login = () => {
-  const [showPassword, setshowPassword] = useState(false)
+  const [showPassword, setshowPassword] = useState(false);
+
+  const [data, setData] = useState({
+    email: "",
+    password: ""
+  })
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target
+
+    setData((preve) => {
+      return {
+        ...preve,
+        [name]: value
+      }
+    })
+  }
+  const handleOnSubmit = async (e) => {
+    e.preventDefault()
+  }
+  console.log("Data login", data)
   return (
     <section id="login">
       <div className='mx-auto container p-4'>
@@ -13,18 +33,28 @@ const Login = () => {
             <img src={LogoIcon} alt='login icon' />
           </div>
 
-          <form className='pt-6 flex flex-col gap-2'>
+          <form className='pt-6 flex flex-col gap-2' onSubmit={handleOnSubmit}>
 
             <div className='grid'>
               <label> Email:</label>
               <div className='bg-slate-100 p-2'>
-                <input type='email' placeholder='Enter email' className='w-full h-full outline-none bg-transparent' />
+                <input type='email'
+                  placeholder='Enter email'
+                  name='email'
+                  value={data.email}
+                  className='w-full h-full outline-none bg-transparent'
+                  onChange={handleOnChange} />
               </div>
 
               <div>
                 <label> Password:</label>
                 <div className='bg-slate-100 p-2 flex'>
-                  <input type={showPassword ? "text" : "password"} placeholder='Enter Password' className='w-full h-full outline-none bg-transparent' />
+                  <input type={showPassword ? "text" : "password"}
+                    placeholder='Enter Password'
+                    name='password'
+                    value={data.password}
+                    className='w-full h-full outline-none bg-transparent'
+                    onChange={handleOnChange} />
                   <div className='cursor-pointer text-xl' onClick={() => setshowPassword((preve) => !preve)}>
                     <span>
                       {
