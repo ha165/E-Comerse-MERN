@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import LogoIcon from '../assest/signin.gif';
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const Login = () => {
   const [showPassword, setshowPassword] = useState(false)
   return (
