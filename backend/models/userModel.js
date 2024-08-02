@@ -10,13 +10,13 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
         trim: true,
-        lowercase: true,  // Ensure email is stored in lowercase
-        match: [/.+@.+\..+/, 'Please enter a valid email address']  // Simple email regex validation
+        lowercase: true, 
+        match: [/.+@.+\..+/, 'Please enter a valid email address'] 
     },
     password: {
         type: String,
         required: true,
-        minlength: 6  // Ensure password has at least 6 characters
+        minlength: 6  
     },
     profilePic: {
         type: String,
