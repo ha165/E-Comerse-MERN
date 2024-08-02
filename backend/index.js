@@ -6,7 +6,9 @@ const app = express()
 app.use(cors)
 
 const PORT = 8000 || process.env.PORT
-connectDB()
-app.listen(PORT, () => {
-    console.log("Server is running")
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("Connected to DB")
+        console.log("Server is running")
+    })
 })
