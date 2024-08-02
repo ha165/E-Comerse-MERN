@@ -27,6 +27,9 @@ const SignUp = () => {
   }
   const handleOnSubmit = async (e) => {
     e.preventDefault()
+
+   const data = await fetch()
+
   }
 
   const handleUploadPic = async (e) => {
