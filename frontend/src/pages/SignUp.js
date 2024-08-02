@@ -3,6 +3,7 @@ import loginIcons from '../assest/signin.gif';
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import imageTobase64 from '../helper/imageTobase64';
 const SignUp = () => {
   const [showPassword, setshowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
