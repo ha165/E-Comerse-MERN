@@ -4,6 +4,10 @@ const bcrypt = require('bcryptjs');
 async function SignUpController(req, res) {
     try {
         const { email, password, name } = req.body;  // Destructure as an object
+        const user = await userModel.findOne({email})
+        if(user){
+            throw new Error("Already this user exists")
+        }
         if (!email) {
             throw new Error("Please provide email");
         }

@@ -7,12 +7,12 @@ const router = require("./routes/index");
 const app = express();
 
 // Middleware
-app.use(cors());  // Correctly use the CORS middleware
-app.use(express.json());  // Add to parse JSON request bodies
+app.use(cors());  
+app.use(express.json());  
 app.use("/api", router);
 
 // PORT assignment
-const PORT = process.env.PORT || 8080;  // Correctly use environment variable or fallback
+const PORT = process.env.PORT || 8080;  
 
 // Connect to the database and start the server
 connectDB()

@@ -26,6 +26,7 @@ const userSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const userModel = mongoose.model("User", userSchema);  // Use a capitalized model name
+const userModel = mongoose.model("Users", userSchema);  // Use a capitalized model name
 
 module.exports = userModel;
+  
