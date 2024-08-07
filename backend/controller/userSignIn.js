@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs")
+const userModel = require("../models/userModel");
 
 async function userSignInController(req, res) {
     try {
@@ -15,7 +16,7 @@ async function userSignInController(req, res) {
             throw new Error("User Not Found")
         }
 
-        const checkpassword = bcrypt.compare(password,user.password)
+        const checkpassword = await bcrypt.compare(password,user.password)
 
         console.log("check password",checkpassword)
 
