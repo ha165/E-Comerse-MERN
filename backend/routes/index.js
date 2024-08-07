@@ -2,7 +2,7 @@ const express = require("express");
 const SignUpController = require("../controller/userSignUp");
 const { body, validationResult } = require("express-validator");
 const userSignInController = require("../controller/userSignIn");
-
+``
 const router = express.Router();
 
 // Validation middleware
