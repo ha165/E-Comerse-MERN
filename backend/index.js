@@ -3,16 +3,22 @@ const cors = require("cors");
 require("dotenv").config();
 const connectDB = require("./config/db");
 const router = require("./routes/index");
+const cookieParser = require('cookie-parser')
+
 
 const app = express();
 
 // Middleware
-app.use(cors());  
-app.use(express.json());  
+app.use(cors({
+    origin: process.env.FRONTEND_URL,
+    credentials : true
+}));
+app.use(express.json());
+app.use(cookieParser())
 app.use("/api", router);
 
 // PORT assignment
-const PORT = process.env.PORT || 8080;  
+const PORT = process.env.PORT || 8080;
 
 // Connect to the database and start the server
 connectDB()
@@ -25,4 +31,3 @@ connectDB()
     .catch(error => {
         console.error(`Failed to connect to DB: ${error.message}`);
     });
- 
