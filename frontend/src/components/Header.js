@@ -30,7 +30,7 @@ const Header = () => {
     }
     if (data.error) {
       toast.error(data.message)
-      
+
     }
   }
   return (
@@ -51,15 +51,17 @@ const Header = () => {
 
         <div className='flex items-center gap-5'>
 
-          <div className='text-3xl cursor-pointer relative flex justify-center'>
-            {
-              user?.profilePic ? (
-                <img src={user?.profilePic} className='w-10 h-10 rounded-full' alt={user?.name} />
-              ) : (
-                <FaRegCircleUser />
-              )
-            }
+          <div >
+            <div className='text-3xl cursor-pointer relative flex justify-center'>
+              {
+                user?.profilePic ? (
+                  <img src={user?.profilePic} className='w-10 h-10 rounded-full' alt={user?.name} />
+                ) : (
+                  <FaRegCircleUser />
+                )
+              }
 
+            </div>
           </div>
 
           <div className='text-2xl relative'>
