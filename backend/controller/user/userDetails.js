@@ -1,4 +1,4 @@
-const userModel = require("../models/userModel")
+const userModel = require("../../models/userModel")
 
 async function userDetailsController(req,res){
     try{
@@ -11,7 +11,7 @@ async function userDetailsController(req,res){
             success : true,
             message : "User details"
         })
- 
+
         console.log("user",user)
 
     }catch(err){

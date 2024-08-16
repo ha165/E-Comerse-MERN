@@ -1,60 +1,71 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Suspense, lazy } from "react";
-import App from "../App";
-import AdminPanel from "../pages/AdminPanel";
-
-const Home = lazy(() => import("../pages/Home"));
-const Login = lazy(() => import("../pages/Login"));
-const ForgotPassword = lazy(() => import("../pages/ForgotPassword"));
-const SignUp = lazy(() => import("../pages/SignUp"));
+import { createBrowserRouter } from 'react-router-dom'
+import App from '../App'
+import Home from '../pages/Home'
+import Login from '../pages/Login'
+import ForgotPassowrd from '../pages/ForgotPassowrd'
+import SignUp from '../pages/SignUp'
+import AdminPanel from '../pages/AdminPanel'
+import AllUsers from '../pages/AllUsers'
+import AllProducts from '../pages/AllProducts'
+import CategoryProduct from '../pages/CategoryProduct'
+import ProductDetails from '../pages/ProductDetails'
+import Cart from '../pages/Cart'
+import SearchProduct from '../pages/SearchProduct'
 
 const router = createBrowserRouter([
     {
-        path: "/",
-        element: <App />,
-        children: [
+        path : "/",
+        element : <App/>,
+        children : [
             {
-                path: "",
-                element: (
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <Home />
-                    </Suspense>
-                ),
+                path : "",
+                element : <Home/>
             },
             {
-                path: "login",
-                element: (
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <Login />
-                    </Suspense>
-                ),
+                path : "login",
+                element : <Login/>
             },
             {
-                path: "forgot-password",
-                element: (
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <ForgotPassword />
-                    </Suspense>
-                ),
+                path : "forgot-password",
+                element : <ForgotPassowrd/>
             },
             {
-                path: "sign-up",
-                element: (
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <SignUp />
-                    </Suspense>
-                ),
+                path : "sign-up",
+                element : <SignUp/>
             },
             {
-                path: "admin-panel",
-                element: (
-                    <Suspense  fallback={<div>Loading...</div>}>
-                        <AdminPanel />
-                    </Suspense>
-                )
-            }
-        ],
-    },
-]);
+                path : "product-category",
+                element : <CategoryProduct/>
+            },
+            {
+                path : "product/:id",
+                element : <ProductDetails/>
+            },
+            {
+                path : 'cart',
+                element : <Cart/>
+            },
+            {
+                path : "search",
+                element : <SearchProduct/>
+            },
+            {
+                path : "admin-panel",
+                element : <AdminPanel/>,
+                children : [
+                    {
+                        path : "all-users",
+                        element : <AllUsers/>
+                    },
+                    {
+                        path : "all-products",
+                        element : <AllProducts/>
+                    }
+                ]
+            },
+        ]
+    }
+])
 
-export default router;
+
+export default router
