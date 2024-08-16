@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import App from "../App";
+import AdminPanel from "../pages/AdminPanel";
 
 const Home = lazy(() => import("../pages/Home"));
 const Login = lazy(() => import("../pages/Login"));
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
                     </Suspense>
                 ),
             },
+            {
+                path: "admin-panel",
+                element: (
+                    <Suspense  fallback={<div>Loading...</div>}>
+                        <AdminPanel />
+                    </Suspense>
+                )
+            }
         ],
     },
 ]);
