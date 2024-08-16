@@ -3,7 +3,8 @@ const SignUpController = require("../controller/userSignUp");
 const { body, validationResult } = require("express-validator");
 const userSignInController = require("../controller/userSignIn");
 const userDetailsController = require("../controller/userDetails")
-const authToken = require("../middleware/authToken")
+const authToken = require("../middleware/authToken");
+const userLogout = require("../controller/userLogout");
 const router = express.Router();
 
 
@@ -17,14 +18,14 @@ router.post("/signup", validateSignUp, (req, res, next) => {
     if (!errors.isEmpty()) {
         return res.status(400).json({
             errors: errors.array(),
-            success: false,  
+            success: false,
             message: 'Validation failed'
         });
     }
     SignUpController(req, res, next);
 });
-router.post("/signin",userSignInController)
+router.post("/signin", userSignInController)
 
-router.get("/user-details",authToken,userDetailsController) 
-
+router.get("/user-details", authToken, userDetailsController)
+router.get("/userlogout", userLogout)
 module.exports = router;
